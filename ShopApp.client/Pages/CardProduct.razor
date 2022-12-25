@@ -1,0 +1,55 @@
+﻿@inherits CardProductBase
+
+
+
+<style>
+    .product_card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 350px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+       
+    }
+
+    .price {
+        color: grey;
+        font-size: 22px;
+    }
+
+    .product_card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background: rgba(25,50,70,0.81);
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+        .product_card button:hover {
+            opacity: 0.7;
+        }
+
+</style>
+
+
+@foreach (var cloth in clothes)
+{
+    
+
+        <div class="product_card">
+            <img src="@cloth.ImageUrl" alt="" style="width:100%">
+            <h1>@cloth.ClothName</h1>
+            <p class="price">@cloth.Price $</p>
+            <p>@cloth.Category</p>
+            <a href="/ProductDetails/@cloth.Id">
+                  <p><button>See All Details</button></p>
+            </a>
+        </div>
+
+    
+}
+

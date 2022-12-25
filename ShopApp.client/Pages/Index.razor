@@ -1,0 +1,94 @@
+﻿@page "/"
+@using ShopApp.shared.Dtos;
+@inherits indexBase
+
+
+
+<!-- LOGO HEADER -->
+<div id="logo-header">
+    <img src="./images/pngwing.com (10).png" alt="" id="logo-img">
+</div>
+<!-- Header -->
+<div id="header">
+    <div class="patern-header">
+        <div class="header-title">
+            <img src="./images/pngwing.com (190).png" alt="" class="movie-now-img">
+        </div>
+
+    </div>
+</div>
+<!-- Body -->
+<section id="main">
+    <div class="main-title">
+        <div class="wrapper">
+            <div class="static-txt">Shop House</div>
+            <ul class="dynamic-txt">
+                <li><span>Modern</span></li>
+                <li><span>Famous</span></li>
+                <li><span>Gigantic</span></li>
+                <li><span>Amazing</span></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- stars left-->
+    <div class="stars-left">
+        <div class="stars one"></div>
+        <div class="stars two"></div>
+        <div class="stars three"></div>
+        <div class="stars four"></div>
+        <div class="stars five"></div>
+    </div>
+    <!-- stars right-->
+    <div class="stars-right">
+        <div class="stars one"></div>
+        <div class="stars two"></div>
+        <div class="stars three"></div>
+        <div class="stars four"></div>
+        <div class="stars five"></div>
+    </div>
+    <!-- Container -->
+    <div class="container">
+        <div class="container-title">
+            <p>Product Collection</p>
+            <div class="container-line"></div>
+        </div>
+        <div class="cards">
+
+
+              @if (clothes is null)
+            {
+                <h3>Loading products.....</h3>
+            }
+            else
+            {
+
+                <CardProduct clothes="@clothes"></CardProduct>
+
+
+            }
+
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<div id="footer">
+    <div class="patern-footer">
+
+
+        <a href="matches.html" class="match-link">
+            <button class="match-button">
+                <span class="match-span">Go To Matches</span>
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+

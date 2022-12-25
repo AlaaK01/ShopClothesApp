@@ -1,0 +1,98 @@
+﻿@page "/ProductDetails/{Id}"
+@using ShopApp.shared.Dtos;
+@using ShopApp.client;
+@inherits ProductDetailsBase
+
+
+<style>
+    .add-cart {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background: rgba(25,50,70,0.81);
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        margin-bottom:10px;
+    }
+
+    .add-cart:hover {
+        opacity: 0.7;
+    }
+
+     .go-home {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background: linear-gradient(to right, #021B79, #0575E6);
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .go-home:hover {
+        opacity: 0.7;
+    }
+</style>
+
+@if (_cloth == null && ErrorMessage == null)
+{
+    <h3>Loading clothes.....</h3>
+}
+
+else
+{
+     <div class="card">
+        <div class="card-photo">
+            <div class="span-img">
+                <img src="@_cloth.ImageUrl" alt="" class="image">
+            </div>
+        </div>
+        <div class="card-title">
+            <span class="span-title"><p>@_cloth.ClothName</p></span>
+        </div>
+        <div class="card-genre">
+            <div class="genre-title"><p class="genre">Price:</p></div>
+            <div class="genre-value">@_cloth.Price $</div>
+        </div>
+        <div class="card-year">
+            <div class="year-title"><p class="year">Category:</p></div>
+            <div class="year-value">@_cloth.Category</div>
+        </div>
+        <div class="card-rate">
+            <div class="rate-title"><p class="rate">Quantity:</p></div>
+            <div class="rate-value">@_cloth.Quantity</div>
+        </div>
+
+        <div class="card-summary">
+            <div class="summary-title"><p class="summary">Desctiption:</p></div>
+            <div class="summary-value">@_cloth.Description</div>
+        </div>
+        
+        <div>
+            
+                <button class="add-cart"
+                @onclick="() => AddToCart_Click(new ItemToAddDto{
+                    CartId = HardCoded.CartId,
+                    ClothId = _cloth.Id,
+                    Quantity = 1
+                })">Add To Cart</button>
+             
+        </div>
+        <div>
+            <a href="/">
+                <button class="go-home">Go Home</button>
+            </a>
+        </div>
+    </div>
+    
+   
+   
+}
+
+
+
